@@ -6,7 +6,7 @@
 
     <groupId>com.rtm516</groupId>
     <artifactId>FloodgatePlaceholders</artifactId>
-    <version>1.4.3</version>
+    <version>1.0.0</version>
     <name>FloodgatePlaceholders</name>
 
     <developers>
@@ -108,6 +108,11 @@
     </build>
 
     <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>releases</name>
+            <url>https://nexus.bjd-mc.com:8443/repository/maven-public/</url>
+        </repository>
         <repository>
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
