@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class FloodgateExpansion extends PlaceholderExpansion {
 
-    public static final String VERSION = "DEV";
+    public static final String VERSION = "2.0.0";
 
 
     public FloodgateExpansion() {
@@ -38,7 +38,7 @@ public class FloodgateExpansion extends PlaceholderExpansion {
 
     @Override
     public String getIdentifier(){
-        return "floodgate";
+        return "Versionize";
     }
 
     @Override
@@ -48,10 +48,13 @@ public class FloodgateExpansion extends PlaceholderExpansion {
 
     @Override
     public String onPlaceholderRequest(Player player, String identifier) {
-        if (player == null) {
-            return "";
-        }
-        switch (identifier) {
+        if (player == null) return "";
+
+        switch (identifier.toLowerCase()) {
+            case "player_protocol_version":
+                return getVersion(player);
+            case "player_protocol_id":
+                return String.valueOf(com.viaversion.viaversion.api.Via.getAPI().getPlayerVersion(player.getUniqueId()));
             case "player":
                 return String.valueOf(isFloodgatePlayer(player));
             case "device":
@@ -60,8 +63,6 @@ public class FloodgateExpansion extends PlaceholderExpansion {
                 return getLocale(player);
             case "locale_upper":
                 return getLocaleUpper(player);
-            case "version":
-                return getVersion(player);
             case "username":
                 return getUsername(player);
             case "xuid":
@@ -86,7 +87,7 @@ public class FloodgateExpansion extends PlaceholderExpansion {
 
     private String getVersion(Player player){
         FloodgatePlayer floodgatePlayer = getFloodgatePlayer(player);
-        return floodgatePlayer != null ? floodgatePlayer.getVersion() : "";
+        return floodgatePlayer != null ? floodgatePlayer.getVersion() : com.viaversion.viaversion.api.protocol.version.ProtocolVersion.getProtocol(com.viaversion.viaversion.api.Via.getAPI().getPlayerVersion(player.getUniqueId())).getName();
     }
 
     private String getLocale(Player player){

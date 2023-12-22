@@ -27,13 +27,19 @@ repositories {
         name = "geysermc-repo"
         url = uri("https://repo.opencollab.dev/maven-snapshots/")
     }
+
+    maven {
+        name = "viaversion-repo"
+        url = uri("https://repo.viaversion.com")
+    }
 }
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT")
-    compileOnly("org.geysermc.floodgate:api:2.2.0-SNAPSHOT")
-    compileOnly("me.clip:placeholderapi:2.10.5")
-    compileOnly("org.projectlombok:lombok:1.18.22")
+    compileOnly("org.geysermc.floodgate:api:2.2.2-SNAPSHOT")
+    compileOnly("me.clip:placeholderapi:2.11.5")
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    compileOnly("com.viaversion:viaversion-api:4.9.2")
 }
 
 tasks.withType<JavaCompile>() {
@@ -46,5 +52,5 @@ configure<JavaPluginExtension> {
 }
 
 tasks.jar {
-    archiveFileName = "Expansion-${project.name}-${project.version}.jar"
+    archiveFileName = "Expansion-${project.name}-${project.version}.${archiveExtension.get()}"
 }
