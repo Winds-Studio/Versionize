@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class FloodgateExpansion extends PlaceholderExpansion {
 
-    public static final String VERSION = "2.0.0";
+    public static final String VERSION = "2.0.1";
 
 
     public FloodgateExpansion() {
@@ -55,7 +55,7 @@ public class FloodgateExpansion extends PlaceholderExpansion {
                 return getVersion(player);
             case "player_protocol_id":
                 return String.valueOf(com.viaversion.viaversion.api.Via.getAPI().getPlayerVersion(player.getUniqueId()));
-            case "player":
+            case "isbedrock":
                 return String.valueOf(isFloodgatePlayer(player));
             case "device":
                 return getDeviceOs(player);
