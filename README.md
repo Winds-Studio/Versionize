@@ -23,6 +23,8 @@ https://api.extendedclip.com/expansions/floodgate/ or `/papi ecloud download Flo
 
 ## Placeholders:
 
+- isBedrock:
+	- `%versionize_isbedrock%`
 - Device:
 	- `%versionize_device%`
 - Locale:
