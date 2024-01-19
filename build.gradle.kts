@@ -24,8 +24,13 @@ repositories {
     }
 
     maven {
-        name = "geysermc-repo"
+        name = "geysermc-repo-snapshots"
         url = uri("https://repo.opencollab.dev/maven-snapshots/")
+    }
+
+    maven {
+        name = "geysermc-repo-releases"
+        url = uri("https://repo.opencollab.dev/maven-releases/")
     }
 
     maven {
