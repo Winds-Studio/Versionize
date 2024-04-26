@@ -43,8 +43,8 @@ dependencies {
     compileOnly("org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT")
     compileOnly("org.geysermc.floodgate:api:2.2.2-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.5")
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    compileOnly("com.viaversion:viaversion-api:4.9.2")
+    compileOnly("org.projectlombok:lombok:1.18.32")
+    compileOnly("com.viaversion:viaversion-api:4.9.3")
 }
 
 tasks.withType<JavaCompile>() {

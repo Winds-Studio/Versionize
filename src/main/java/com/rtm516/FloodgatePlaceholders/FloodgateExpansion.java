@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.geysermc.floodgate.api.FloodgateApi;
 import org.geysermc.floodgate.api.player.FloodgatePlayer;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
@@ -12,17 +13,16 @@ public class FloodgateExpansion extends PlaceholderExpansion {
 
     public static final String VERSION = "2.0.1";
 
-
     public FloodgateExpansion() {
     }
 
     @Override
-    public boolean persist(){
+    public boolean persist() {
         return true;
     }
 
     @Override
-    public boolean canRegister(){
+    public boolean canRegister() {
         return Bukkit.getPluginManager().isPluginEnabled(getRequiredPlugin());
     }
 
@@ -32,22 +32,22 @@ public class FloodgateExpansion extends PlaceholderExpansion {
     }
 
     @Override
-    public String getAuthor(){
+    public @NotNull String getAuthor() {
         return "rtm516";
     }
 
     @Override
-    public String getIdentifier(){
+    public @NotNull String getIdentifier() {
         return "Versionize";
     }
 
     @Override
-    public String getVersion(){
+    public @NotNull String getVersion() {
         return VERSION;
     }
 
     @Override
-    public String onPlaceholderRequest(Player player, String identifier) {
+    public String onPlaceholderRequest(Player player, @NotNull String identifier) {
         if (player == null) return "";
 
         switch (identifier.toLowerCase()) {
@@ -71,40 +71,40 @@ public class FloodgateExpansion extends PlaceholderExpansion {
         return null;
     }
 
-    private boolean isFloodgatePlayer(Player player){
+    private boolean isFloodgatePlayer(Player player) {
         return FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId());
     }
 
-    private String getXuid(Player player){
+    private String getXuid(Player player) {
         FloodgatePlayer floodgatePlayer = getFloodgatePlayer(player);
         return floodgatePlayer != null ? floodgatePlayer.getXuid() : "";
     }
 
-    private String getDeviceOs(Player player){
+    private String getDeviceOs(Player player) {
         FloodgatePlayer floodgatePlayer = getFloodgatePlayer(player);
         return floodgatePlayer != null ? floodgatePlayer.getDeviceOs().toString() : "JAVA";
     }
 
-    private String getVersion(Player player){
+    private String getVersion(Player player) {
         FloodgatePlayer floodgatePlayer = getFloodgatePlayer(player);
         return floodgatePlayer != null ? floodgatePlayer.getVersion() : com.viaversion.viaversion.api.protocol.version.ProtocolVersion.getProtocol(com.viaversion.viaversion.api.Via.getAPI().getPlayerVersion(player.getUniqueId())).getName();
     }
 
-    private String getLocale(Player player){
+    private String getLocale(Player player) {
         FloodgatePlayer floodgatePlayer = getFloodgatePlayer(player);
         return floodgatePlayer != null ? floodgatePlayer.getLanguageCode() : "";
     }
 
-    private String getUsername(Player player){
+    private String getUsername(Player player) {
         FloodgatePlayer floodgatePlayer = getFloodgatePlayer(player);
         return floodgatePlayer != null ? floodgatePlayer.getUsername() : "";
     }
 
-    private String getLocaleUpper(Player player){
+    private String getLocaleUpper(Player player) {
         return getLocale(player).toUpperCase(Locale.ROOT);
     }
 
-    private FloodgatePlayer getFloodgatePlayer(Player player){
+    private FloodgatePlayer getFloodgatePlayer(Player player) {
         return FloodgateApi.getInstance().getPlayer(player.getUniqueId());
     }
 }
