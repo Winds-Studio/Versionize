@@ -13,9 +13,6 @@ public class FloodgateExpansion extends PlaceholderExpansion {
 
     public static final String VERSION = "2.0.1";
 
-    public FloodgateExpansion() {
-    }
-
     @Override
     public boolean persist() {
         return true;
@@ -23,7 +20,7 @@ public class FloodgateExpansion extends PlaceholderExpansion {
 
     @Override
     public boolean canRegister() {
-        return Bukkit.getPluginManager().isPluginEnabled(getRequiredPlugin());
+        return getRequiredPlugin() != null && Bukkit.getPluginManager().isPluginEnabled(getRequiredPlugin());
     }
 
     @Override
